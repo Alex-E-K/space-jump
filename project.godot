@@ -39,6 +39,11 @@ flap={
  ]
 }
 
+[input_devices]
+
+pointing/ios/touch_delay=0.0
+pointing/emulate_touch_from_mouse=true
+
 [physics]
 
 common/enable_pause_aware_picking=true
@@ -47,4 +52,3 @@ common/enable_pause_aware_picking=true
 
 quality/filters/msaa=4
 quality/filters/use_fxaa=true
-environment/default_environment="res://default_env.tres"
