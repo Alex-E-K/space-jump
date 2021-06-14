@@ -4,7 +4,7 @@ icon.png
 .import/
 default_env.tres
 icon.png.import
-project.godot
+
 
 # Created by https://www.toptal.com/developers/gitignore/api/godot,csharp,windows,macos
 # Edit at https://www.toptal.com/developers/gitignore?templates=godot,csharp,windows,macos
