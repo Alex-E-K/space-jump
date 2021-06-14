@@ -1,0 +1,24 @@
+[remap]
+
+importer="texture_array"
+type="TextureArray"
+path="res://.import/Columns.png-170a48f8d590ef5a4f14068c7d6d6bd1.texarr"
+metadata={
+"vram_texture": false
+}
+
+[deps]
+
+source_file="res://Assets/Wall/Columns.png"
+dest_files=[ "res://.import/Columns.png-170a48f8d590ef5a4f14068c7d6d6bd1.texarr" ]
+
+[params]
+
+compress/mode=0
+compress/no_bptc_if_rgb=false
+flags/repeat=0
+flags/filter=true
+flags/mipmaps=1
+flags/srgb=0
+slices/horizontal=32
+slices/vertical=32

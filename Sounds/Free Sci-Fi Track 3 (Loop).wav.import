@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Free Sci-Fi Track 3 (Loop).wav-7086d4d6119d330d8d23c2f526729162.sample"
+
+[deps]
+
+source_file="res://Sounds/Free Sci-Fi Track 3 (Loop).wav"
+dest_files=[ "res://.import/Free Sci-Fi Track 3 (Loop).wav-7086d4d6119d330d8d23c2f526729162.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=true
+compress/mode=0

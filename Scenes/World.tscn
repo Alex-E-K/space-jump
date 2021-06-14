@@ -1,0 +1,352 @@
+[gd_scene load_steps=33 format=2]
+
+[ext_resource path="res://Scenes/WallNode.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Assets/Player/player1.png" type="Texture" id=2]
+[ext_resource path="res://Scripts/Player/Player.gd" type="Script" id=3]
+[ext_resource path="res://Assets/Background/Bkg 1 Star Middle.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Background/Bkg 2 Meteors.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Background/Bkg 1 Planet.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Background/Bkg 8 Planet.png" type="Texture" id=7]
+[ext_resource path="res://Scripts/MoveCamera.gd" type="Script" id=8]
+[ext_resource path="res://Scripts/GameOverOverlay.gd" type="Script" id=9]
+[ext_resource path="res://Sounds/GameOver.wav" type="AudioStream" id=10]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 13.0132, 6.44778 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 6.53763, 13.3491 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 10, 250 )
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 10, 250 )
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 700, 10 )
+
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 700, 10 )
+
+[sub_resource type="DynamicFontData" id=7]
+antialiased = false
+hinting = 0
+font_path = "res://Fonts/Digital-7/Digital7Mono-B1g5.ttf"
+
+[sub_resource type="DynamicFont" id=8]
+size = 170
+extra_spacing_char = 1
+font_data = SubResource( 7 )
+
+[sub_resource type="DynamicFontData" id=9]
+font_path = "res://Fonts/Digital-7/Digital7Mono-B1g5.ttf"
+
+[sub_resource type="DynamicFont" id=10]
+size = 170
+extra_spacing_space = -40
+font_data = SubResource( 9 )
+
+[sub_resource type="StyleBoxEmpty" id=11]
+
+[sub_resource type="StyleBoxEmpty" id=12]
+
+[sub_resource type="StyleBoxEmpty" id=13]
+
+[sub_resource type="StyleBoxEmpty" id=14]
+
+[sub_resource type="DynamicFontData" id=15]
+font_path = "res://Fonts/Digital-7/Digital7Mono-B1g5.ttf"
+
+[sub_resource type="DynamicFont" id=16]
+size = 80
+font_data = SubResource( 15 )
+
+[sub_resource type="StyleBoxEmpty" id=17]
+
+[sub_resource type="StyleBoxEmpty" id=18]
+
+[sub_resource type="StyleBoxEmpty" id=19]
+
+[sub_resource type="StyleBoxEmpty" id=20]
+
+[sub_resource type="DynamicFontData" id=21]
+font_path = "res://Fonts/Digital-7/Digital7Mono-B1g5.ttf"
+
+[sub_resource type="DynamicFont" id=22]
+size = 80
+font_data = SubResource( 21 )
+
+[node name="World" type="Node2D"]
+
+[node name="Background" type="CanvasLayer" parent="."]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="Background"]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="Background/ParallaxBackground"]
+motion_mirroring = Vector2( 4096, 0 )
+
+[node name="Sprite" type="Sprite" parent="Background/ParallaxBackground/ParallaxLayer"]
+position = Vector2( 0, -8 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 4 )
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="Background/ParallaxBackground"]
+motion_mirroring = Vector2( 4096, 0 )
+
+[node name="Sprite" type="Sprite" parent="Background/ParallaxBackground/ParallaxLayer2"]
+scale = Vector2( 2, 2 )
+texture = ExtResource( 5 )
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="Background/ParallaxBackground"]
+
+[node name="Sprite" type="Sprite" parent="Background/ParallaxBackground/ParallaxLayer3"]
+position = Vector2( 5024, -1096 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 6 )
+
+[node name="ParallaxLayer4" type="ParallaxLayer" parent="Background/ParallaxBackground"]
+
+[node name="Sprite" type="Sprite" parent="Background/ParallaxBackground/ParallaxLayer4"]
+position = Vector2( 20896, 1424 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 7 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true
+zoom = Vector2( 0.75, 0.75 )
+script = ExtResource( 8 )
+movementPerTick = 3.0
+
+[node name="PlayerNode" type="Node2D" parent="Camera2D"]
+position = Vector2( -200, 0 )
+
+[node name="Player" type="KinematicBody2D" parent="Camera2D/PlayerNode"]
+scale = Vector2( 4, 4 )
+script = ExtResource( 3 )
+flap = 1200
+maxFallspeed = 1500
+gravity = 65
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera2D/PlayerNode/Player"]
+position = Vector2( 0, -1.523 )
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="Camera2D/PlayerNode/Player"]
+texture = ExtResource( 2 )
+
+[node name="Detect" type="Area2D" parent="Camera2D/PlayerNode/Player"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera2D/PlayerNode/Player/Detect"]
+position = Vector2( 0, -1.65 )
+rotation = 1.5708
+shape = SubResource( 2 )
+
+[node name="WallSpawner" type="Area2D" parent="Camera2D/PlayerNode/Player"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera2D/PlayerNode/Player/WallSpawner"]
+position = Vector2( 450, 0 )
+shape = SubResource( 3 )
+
+[node name="WallDestroyer" type="Area2D" parent="Camera2D/PlayerNode/Player"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera2D/PlayerNode/Player/WallDestroyer"]
+position = Vector2( -300, 0 )
+shape = SubResource( 4 )
+
+[node name="WallNode" parent="Camera2D" instance=ExtResource( 1 )]
+position = Vector2( 2500, 0 )
+
+[node name="Boundary" type="Node2D" parent="Camera2D"]
+
+[node name="Top" type="Area2D" parent="Camera2D/Boundary"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera2D/Boundary/Top"]
+position = Vector2( 0, -1300 )
+shape = SubResource( 5 )
+
+[node name="Bottom" type="Area2D" parent="Camera2D/Boundary"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera2D/Boundary/Bottom"]
+position = Vector2( 0, 1300 )
+shape = SubResource( 6 )
+
+[node name="Score" type="Label" parent="Camera2D"]
+margin_left = -200.0
+margin_top = -864.0
+margin_right = 200.0
+margin_bottom = -684.0
+custom_fonts/font = SubResource( 8 )
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GameOverOverlay" type="Control" parent="Camera2D"]
+pause_mode = 2
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -480.0
+margin_top = -1040.0
+margin_right = 480.0
+margin_bottom = 1041.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Camera2D/GameOverOverlay"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Spacer1" type="Label" parent="Camera2D/GameOverOverlay/VBoxContainer"]
+margin_right = 960.0
+margin_bottom = 343.0
+size_flags_vertical = 7
+
+[node name="GameOver" type="Label" parent="Camera2D/GameOverOverlay/VBoxContainer"]
+margin_top = 347.0
+margin_right = 960.0
+margin_bottom = 691.0
+size_flags_horizontal = 3
+size_flags_vertical = 7
+custom_fonts/font = SubResource( 10 )
+text = "Game Over"
+align = 1
+valign = 1
+
+[node name="Spacer4" type="Label" parent="Camera2D/GameOverOverlay/VBoxContainer"]
+margin_top = 695.0
+margin_right = 960.0
+margin_bottom = 1038.0
+size_flags_vertical = 7
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Spacer2" type="Label" parent="Camera2D/GameOverOverlay/VBoxContainer"]
+margin_top = 1042.0
+margin_right = 960.0
+margin_bottom = 1386.0
+size_flags_vertical = 7
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Camera2D/GameOverOverlay/VBoxContainer"]
+margin_top = 1390.0
+margin_right = 960.0
+margin_bottom = 1733.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Spacer1" type="Label" parent="Camera2D/GameOverOverlay/VBoxContainer/HBoxContainer"]
+margin_right = 188.0
+margin_bottom = 343.0
+size_flags_horizontal = 3
+size_flags_vertical = 7
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HomeBtn" type="Button" parent="Camera2D/GameOverOverlay/VBoxContainer/HBoxContainer"]
+margin_left = 192.0
+margin_right = 381.0
+margin_bottom = 343.0
+rect_pivot_offset = Vector2( -3417, 245 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_styles/hover = SubResource( 11 )
+custom_styles/pressed = SubResource( 12 )
+custom_styles/focus = SubResource( 13 )
+custom_styles/normal = SubResource( 14 )
+flat = true
+
+[node name="Label" type="Label" parent="Camera2D/GameOverOverlay/VBoxContainer/HBoxContainer/HomeBtn"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 7
+custom_fonts/font = SubResource( 16 )
+text = "Home"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Spacer2" type="Label" parent="Camera2D/GameOverOverlay/VBoxContainer/HBoxContainer"]
+margin_left = 385.0
+margin_right = 574.0
+margin_bottom = 343.0
+size_flags_horizontal = 3
+size_flags_vertical = 7
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RetryBtn" type="Button" parent="Camera2D/GameOverOverlay/VBoxContainer/HBoxContainer"]
+margin_left = 578.0
+margin_right = 767.0
+margin_bottom = 343.0
+rect_pivot_offset = Vector2( -3417, 245 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_styles/hover = SubResource( 17 )
+custom_styles/pressed = SubResource( 18 )
+custom_styles/focus = SubResource( 19 )
+custom_styles/normal = SubResource( 20 )
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Camera2D/GameOverOverlay/VBoxContainer/HBoxContainer/RetryBtn"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 7
+custom_fonts/font = SubResource( 22 )
+text = "Retry"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Spacer3" type="Label" parent="Camera2D/GameOverOverlay/VBoxContainer/HBoxContainer"]
+margin_left = 771.0
+margin_right = 960.0
+margin_bottom = 343.0
+size_flags_horizontal = 3
+size_flags_vertical = 7
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Spacer3" type="Label" parent="Camera2D/GameOverOverlay/VBoxContainer"]
+margin_top = 1737.0
+margin_right = 960.0
+margin_bottom = 2081.0
+size_flags_vertical = 7
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GameOverSound" type="AudioStreamPlayer" parent="Camera2D/GameOverOverlay"]
+stream = ExtResource( 10 )
+
+[connection signal="gameOver" from="Camera2D/PlayerNode/Player" to="Camera2D/GameOverOverlay" method="_on_Player_gameOver"]
+[connection signal="area_exited" from="Camera2D/PlayerNode/Player/Detect" to="Camera2D/PlayerNode/Player" method="_on_Detect_area_exited"]
+[connection signal="body_entered" from="Camera2D/PlayerNode/Player/Detect" to="Camera2D/PlayerNode/Player" method="_on_Detect_body_entered"]
+[connection signal="body_entered" from="Camera2D/PlayerNode/Player/WallSpawner" to="Camera2D/PlayerNode/Player" method="_on_WallSpawner_body_entered"]
+[connection signal="body_entered" from="Camera2D/PlayerNode/Player/WallDestroyer" to="Camera2D/PlayerNode/Player" method="_on_WallDestroyer_body_entered"]
+[connection signal="pressed" from="Camera2D/GameOverOverlay/VBoxContainer/HBoxContainer/HomeBtn" to="Camera2D/GameOverOverlay" method="_on_HomeBtn_pressed"]
+[connection signal="pressed" from="Camera2D/GameOverOverlay/VBoxContainer/HBoxContainer/RetryBtn" to="Camera2D/GameOverOverlay" method="_on_RetryBtn_pressed"]
