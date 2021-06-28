@@ -39,51 +39,51 @@ size = 170
 extra_spacing_char = 1
 font_data = SubResource( 7 )
 
-[sub_resource type="StyleBoxEmpty" id=23]
+[sub_resource type="StyleBoxEmpty" id=9]
 
-[sub_resource type="StyleBoxEmpty" id=24]
-
-[sub_resource type="StyleBoxEmpty" id=25]
-
-[sub_resource type="StyleBoxEmpty" id=26]
-
-[sub_resource type="DynamicFontData" id=9]
-font_path = "res://Fonts/Digital-7/Digital7Mono-B1g5.ttf"
-
-[sub_resource type="DynamicFont" id=10]
-size = 170
-extra_spacing_space = -40
-font_data = SubResource( 9 )
+[sub_resource type="StyleBoxEmpty" id=10]
 
 [sub_resource type="StyleBoxEmpty" id=11]
 
 [sub_resource type="StyleBoxEmpty" id=12]
 
-[sub_resource type="StyleBoxEmpty" id=13]
-
-[sub_resource type="StyleBoxEmpty" id=14]
-
-[sub_resource type="DynamicFontData" id=15]
+[sub_resource type="DynamicFontData" id=13]
 font_path = "res://Fonts/Digital-7/Digital7Mono-B1g5.ttf"
 
-[sub_resource type="DynamicFont" id=16]
-size = 80
-font_data = SubResource( 15 )
+[sub_resource type="DynamicFont" id=14]
+size = 170
+extra_spacing_space = -40
+font_data = SubResource( 13 )
+
+[sub_resource type="StyleBoxEmpty" id=15]
+
+[sub_resource type="StyleBoxEmpty" id=16]
 
 [sub_resource type="StyleBoxEmpty" id=17]
 
 [sub_resource type="StyleBoxEmpty" id=18]
 
-[sub_resource type="StyleBoxEmpty" id=19]
-
-[sub_resource type="StyleBoxEmpty" id=20]
-
-[sub_resource type="DynamicFontData" id=21]
+[sub_resource type="DynamicFontData" id=19]
 font_path = "res://Fonts/Digital-7/Digital7Mono-B1g5.ttf"
 
-[sub_resource type="DynamicFont" id=22]
+[sub_resource type="DynamicFont" id=20]
 size = 80
-font_data = SubResource( 21 )
+font_data = SubResource( 19 )
+
+[sub_resource type="StyleBoxEmpty" id=21]
+
+[sub_resource type="StyleBoxEmpty" id=22]
+
+[sub_resource type="StyleBoxEmpty" id=23]
+
+[sub_resource type="StyleBoxEmpty" id=24]
+
+[sub_resource type="DynamicFontData" id=25]
+font_path = "res://Fonts/Digital-7/Digital7Mono-B1g5.ttf"
+
+[sub_resource type="DynamicFont" id=26]
+size = 80
+font_data = SubResource( 25 )
 
 [node name="World" type="Node2D"]
 
@@ -127,7 +127,7 @@ script = ExtResource( 8 )
 movementPerTick = 3.0
 
 [node name="PlayerNode" type="Node2D" parent="Camera2D"]
-position = Vector2( -200, 0 )
+position = Vector2( -250, 0 )
 
 [node name="Player" type="KinematicBody2D" parent="Camera2D/PlayerNode"]
 scale = Vector2( 4, 4 )
@@ -192,15 +192,19 @@ __meta__ = {
 }
 
 [node name="FlapBtn" type="Button" parent="Camera2D"]
-margin_left = -480.0
-margin_top = -1040.0
-margin_right = 480.0
-margin_bottom = 1041.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -2003.0
+margin_top = -2010.0
+margin_right = 2214.0
+margin_bottom = 2013.0
 mouse_filter = 1
-custom_styles/hover = SubResource( 23 )
-custom_styles/pressed = SubResource( 24 )
-custom_styles/focus = SubResource( 25 )
-custom_styles/normal = SubResource( 26 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_styles/hover = SubResource( 9 )
+custom_styles/pressed = SubResource( 10 )
+custom_styles/focus = SubResource( 11 )
+custom_styles/normal = SubResource( 12 )
 shortcut_in_tooltip = false
 flat = true
 __meta__ = {
@@ -241,7 +245,7 @@ margin_right = 960.0
 margin_bottom = 691.0
 size_flags_horizontal = 3
 size_flags_vertical = 7
-custom_fonts/font = SubResource( 10 )
+custom_fonts/font = SubResource( 14 )
 text = "Game Over"
 align = 1
 valign = 1
@@ -287,10 +291,10 @@ margin_bottom = 343.0
 rect_pivot_offset = Vector2( -3417, 245 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_styles/hover = SubResource( 11 )
-custom_styles/pressed = SubResource( 12 )
-custom_styles/focus = SubResource( 13 )
-custom_styles/normal = SubResource( 14 )
+custom_styles/hover = SubResource( 15 )
+custom_styles/pressed = SubResource( 16 )
+custom_styles/focus = SubResource( 17 )
+custom_styles/normal = SubResource( 18 )
 flat = true
 
 [node name="Label" type="Label" parent="Camera2D/GameOverOverlay/VBoxContainer/HBoxContainer/HomeBtn"]
@@ -298,7 +302,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 size_flags_horizontal = 3
 size_flags_vertical = 7
-custom_fonts/font = SubResource( 16 )
+custom_fonts/font = SubResource( 20 )
 text = "Home"
 align = 1
 valign = 1
@@ -323,10 +327,10 @@ margin_bottom = 343.0
 rect_pivot_offset = Vector2( -3417, 245 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_styles/hover = SubResource( 17 )
-custom_styles/pressed = SubResource( 18 )
-custom_styles/focus = SubResource( 19 )
-custom_styles/normal = SubResource( 20 )
+custom_styles/hover = SubResource( 21 )
+custom_styles/pressed = SubResource( 22 )
+custom_styles/focus = SubResource( 23 )
+custom_styles/normal = SubResource( 24 )
 flat = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -337,7 +341,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 size_flags_horizontal = 3
 size_flags_vertical = 7
-custom_fonts/font = SubResource( 22 )
+custom_fonts/font = SubResource( 26 )
 text = "Retry"
 align = 1
 valign = 1

@@ -8,6 +8,7 @@ export var up = Vector2(0, -1)
 export var flap = 200
 export var maxFallspeed = 200
 export var gravity = 10
+export var gapRange = 550
 
 var score = 0
 var screenTapped = false
@@ -47,7 +48,7 @@ func _on_WallDestroyer_body_entered(body):
 func _on_WallSpawner_body_entered(body):
 	if body.name == "Walls":
 		var newWall = wall.instance()
-		newWall.position = Vector2(position.x + 2500, rand_range(-600, 600))
+		newWall.position = Vector2(position.x + 2500, rand_range(-gapRange, gapRange))
 		get_parent().call_deferred("add_child", newWall)
 
 
