@@ -1,91 +1,91 @@
 [gd_scene load_steps=37 format=2]
 
 [ext_resource path="res://Scenes/WallNode.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Assets/Player/player1.png" type="Texture" id=2]
-[ext_resource path="res://Scripts/Player/Player.gd" type="Script" id=3]
-[ext_resource path="res://Assets/Background/Bkg 1 Star Middle.png" type="Texture" id=4]
+[ext_resource path="res://Sounds/GameOver.wav" type="AudioStream" id=2]
+[ext_resource path="res://Assets/Background/Bkg 8 Planet.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Player/player1.png" type="Texture" id=4]
 [ext_resource path="res://Assets/Background/Bkg 2 Meteors.png" type="Texture" id=5]
-[ext_resource path="res://Assets/Background/Bkg 1 Planet.png" type="Texture" id=6]
-[ext_resource path="res://Assets/Background/Bkg 8 Planet.png" type="Texture" id=7]
-[ext_resource path="res://Scripts/MoveCamera.gd" type="Script" id=8]
-[ext_resource path="res://Scripts/GameOverOverlay.gd" type="Script" id=9]
-[ext_resource path="res://Sounds/GameOver.wav" type="AudioStream" id=10]
+[ext_resource path="res://Assets/Background/Bkg 1 Star Middle.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Background/Bkg 1 Planet.png" type="Texture" id=7]
+[ext_resource path="res://Scripts/GameOverOverlay.gd" type="Script" id=8]
+[ext_resource path="res://Scripts/Player/CrazyPlayer.gd" type="Script" id=9]
+[ext_resource path="res://Scripts/MoveCamera.gd" type="Script" id=10]
 
-[sub_resource type="RectangleShape2D" id=1]
+[sub_resource type="RectangleShape2D" id=26]
 extents = Vector2( 13.0132, 6.44778 )
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="RectangleShape2D" id=27]
 extents = Vector2( 6.53763, 13.3491 )
 
-[sub_resource type="RectangleShape2D" id=3]
+[sub_resource type="RectangleShape2D" id=28]
 extents = Vector2( 10, 250 )
 
-[sub_resource type="RectangleShape2D" id=4]
+[sub_resource type="RectangleShape2D" id=29]
 extents = Vector2( 10, 250 )
 
-[sub_resource type="RectangleShape2D" id=5]
+[sub_resource type="RectangleShape2D" id=30]
 extents = Vector2( 700, 10 )
 
-[sub_resource type="RectangleShape2D" id=6]
+[sub_resource type="RectangleShape2D" id=31]
 extents = Vector2( 700, 10 )
 
-[sub_resource type="DynamicFontData" id=27]
+[sub_resource type="DynamicFontData" id=7]
 antialiased = false
 hinting = 0
 font_path = "res://Fonts/Digital-7/Digital7Mono-B1g5.ttf"
 
-[sub_resource type="DynamicFont" id=8]
+[sub_resource type="DynamicFont" id=32]
 size = 170
 extra_spacing_char = 1
-font_data = SubResource( 27 )
+font_data = SubResource( 7 )
 
-[sub_resource type="StyleBoxEmpty" id=9]
+[sub_resource type="StyleBoxEmpty" id=33]
 
-[sub_resource type="StyleBoxEmpty" id=10]
+[sub_resource type="StyleBoxEmpty" id=34]
 
-[sub_resource type="StyleBoxEmpty" id=11]
+[sub_resource type="StyleBoxEmpty" id=35]
 
-[sub_resource type="StyleBoxEmpty" id=12]
+[sub_resource type="StyleBoxEmpty" id=36]
 
-[sub_resource type="DynamicFontData" id=28]
+[sub_resource type="DynamicFontData" id=13]
 font_path = "res://Fonts/Digital-7/Digital7Mono-B1g5.ttf"
 
-[sub_resource type="DynamicFont" id=14]
+[sub_resource type="DynamicFont" id=37]
 size = 170
 extra_spacing_space = -40
-font_data = SubResource( 28 )
+font_data = SubResource( 13 )
 
-[sub_resource type="StyleBoxEmpty" id=15]
+[sub_resource type="StyleBoxEmpty" id=38]
 
-[sub_resource type="StyleBoxEmpty" id=16]
+[sub_resource type="StyleBoxEmpty" id=39]
 
-[sub_resource type="StyleBoxEmpty" id=17]
+[sub_resource type="StyleBoxEmpty" id=40]
 
-[sub_resource type="StyleBoxEmpty" id=18]
+[sub_resource type="StyleBoxEmpty" id=41]
 
-[sub_resource type="DynamicFontData" id=29]
+[sub_resource type="DynamicFontData" id=19]
 font_path = "res://Fonts/Digital-7/Digital7Mono-B1g5.ttf"
 
-[sub_resource type="DynamicFont" id=20]
+[sub_resource type="DynamicFont" id=42]
 size = 80
-font_data = SubResource( 29 )
+font_data = SubResource( 19 )
 
-[sub_resource type="StyleBoxEmpty" id=21]
+[sub_resource type="StyleBoxEmpty" id=43]
 
-[sub_resource type="StyleBoxEmpty" id=22]
+[sub_resource type="StyleBoxEmpty" id=44]
 
-[sub_resource type="StyleBoxEmpty" id=23]
+[sub_resource type="StyleBoxEmpty" id=45]
 
-[sub_resource type="StyleBoxEmpty" id=24]
+[sub_resource type="StyleBoxEmpty" id=46]
 
-[sub_resource type="DynamicFontData" id=30]
+[sub_resource type="DynamicFontData" id=25]
 font_path = "res://Fonts/Digital-7/Digital7Mono-B1g5.ttf"
 
-[sub_resource type="DynamicFont" id=26]
+[sub_resource type="DynamicFont" id=47]
 size = 80
-font_data = SubResource( 30 )
+font_data = SubResource( 25 )
 
-[node name="World" type="Node2D"]
+[node name="CrazyWorld" type="Node2D"]
 
 [node name="Background" type="CanvasLayer" parent="."]
 
@@ -97,7 +97,7 @@ motion_mirroring = Vector2( 4096, 0 )
 [node name="Sprite" type="Sprite" parent="Background/ParallaxBackground/ParallaxLayer"]
 position = Vector2( 0, -8 )
 scale = Vector2( 2, 2 )
-texture = ExtResource( 4 )
+texture = ExtResource( 6 )
 
 [node name="ParallaxLayer2" type="ParallaxLayer" parent="Background/ParallaxBackground"]
 motion_mirroring = Vector2( 4096, 0 )
@@ -111,19 +111,19 @@ texture = ExtResource( 5 )
 [node name="Sprite" type="Sprite" parent="Background/ParallaxBackground/ParallaxLayer3"]
 position = Vector2( 5024, -1096 )
 scale = Vector2( 2, 2 )
-texture = ExtResource( 6 )
+texture = ExtResource( 7 )
 
 [node name="ParallaxLayer4" type="ParallaxLayer" parent="Background/ParallaxBackground"]
 
 [node name="Sprite" type="Sprite" parent="Background/ParallaxBackground/ParallaxLayer4"]
 position = Vector2( 20896, 1424 )
 scale = Vector2( 2, 2 )
-texture = ExtResource( 7 )
+texture = ExtResource( 3 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
 zoom = Vector2( 0.75, 0.75 )
-script = ExtResource( 8 )
+script = ExtResource( 10 )
 movementPerTick = 3.0
 
 [node name="PlayerNode" type="Node2D" parent="Camera2D"]
@@ -131,36 +131,36 @@ position = Vector2( -250, 0 )
 
 [node name="Player" type="KinematicBody2D" parent="Camera2D/PlayerNode"]
 scale = Vector2( 4, 4 )
-script = ExtResource( 3 )
+script = ExtResource( 9 )
 flap = 1200
 maxFallspeed = 1500
 gravity = 65
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Camera2D/PlayerNode/Player"]
 position = Vector2( 0, -1.523 )
-shape = SubResource( 1 )
+shape = SubResource( 26 )
 
 [node name="Sprite" type="Sprite" parent="Camera2D/PlayerNode/Player"]
-texture = ExtResource( 2 )
+texture = ExtResource( 4 )
 
 [node name="Detect" type="Area2D" parent="Camera2D/PlayerNode/Player"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Camera2D/PlayerNode/Player/Detect"]
 position = Vector2( 0, -1.65 )
 rotation = 1.5708
-shape = SubResource( 2 )
+shape = SubResource( 27 )
 
 [node name="WallSpawner" type="Area2D" parent="Camera2D/PlayerNode/Player"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Camera2D/PlayerNode/Player/WallSpawner"]
 position = Vector2( 450, 0 )
-shape = SubResource( 3 )
+shape = SubResource( 28 )
 
 [node name="WallDestroyer" type="Area2D" parent="Camera2D/PlayerNode/Player"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Camera2D/PlayerNode/Player/WallDestroyer"]
 position = Vector2( -300, 0 )
-shape = SubResource( 4 )
+shape = SubResource( 29 )
 
 [node name="WallNode" parent="Camera2D" instance=ExtResource( 1 )]
 position = Vector2( 2500, 0 )
@@ -171,20 +171,20 @@ position = Vector2( 2500, 0 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Camera2D/Boundary/Top"]
 position = Vector2( 0, -1300 )
-shape = SubResource( 5 )
+shape = SubResource( 30 )
 
 [node name="Bottom" type="Area2D" parent="Camera2D/Boundary"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Camera2D/Boundary/Bottom"]
 position = Vector2( 0, 1300 )
-shape = SubResource( 6 )
+shape = SubResource( 31 )
 
 [node name="Score" type="Label" parent="Camera2D"]
 margin_left = -200.0
 margin_top = -864.0
 margin_right = 200.0
 margin_bottom = -684.0
-custom_fonts/font = SubResource( 8 )
+custom_fonts/font = SubResource( 32 )
 align = 1
 valign = 1
 __meta__ = {
@@ -201,10 +201,10 @@ margin_bottom = 2013.0
 mouse_filter = 1
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_styles/hover = SubResource( 9 )
-custom_styles/pressed = SubResource( 10 )
-custom_styles/focus = SubResource( 11 )
-custom_styles/normal = SubResource( 12 )
+custom_styles/hover = SubResource( 33 )
+custom_styles/pressed = SubResource( 34 )
+custom_styles/focus = SubResource( 35 )
+custom_styles/normal = SubResource( 36 )
 shortcut_in_tooltip = false
 flat = true
 __meta__ = {
@@ -222,7 +222,7 @@ margin_right = 480.0
 margin_bottom = 1041.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-script = ExtResource( 9 )
+script = ExtResource( 8 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -245,7 +245,7 @@ margin_right = 960.0
 margin_bottom = 691.0
 size_flags_horizontal = 3
 size_flags_vertical = 7
-custom_fonts/font = SubResource( 14 )
+custom_fonts/font = SubResource( 37 )
 text = "Game Over"
 align = 1
 valign = 1
@@ -291,10 +291,10 @@ margin_bottom = 343.0
 rect_pivot_offset = Vector2( -3417, 245 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_styles/hover = SubResource( 15 )
-custom_styles/pressed = SubResource( 16 )
-custom_styles/focus = SubResource( 17 )
-custom_styles/normal = SubResource( 18 )
+custom_styles/hover = SubResource( 38 )
+custom_styles/pressed = SubResource( 39 )
+custom_styles/focus = SubResource( 40 )
+custom_styles/normal = SubResource( 41 )
 flat = true
 
 [node name="Label" type="Label" parent="Camera2D/GameOverOverlay/VBoxContainer/HBoxContainer/HomeBtn"]
@@ -302,7 +302,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 size_flags_horizontal = 3
 size_flags_vertical = 7
-custom_fonts/font = SubResource( 20 )
+custom_fonts/font = SubResource( 42 )
 text = "Home"
 align = 1
 valign = 1
@@ -327,10 +327,10 @@ margin_bottom = 343.0
 rect_pivot_offset = Vector2( -3417, 245 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_styles/hover = SubResource( 21 )
-custom_styles/pressed = SubResource( 22 )
-custom_styles/focus = SubResource( 23 )
-custom_styles/normal = SubResource( 24 )
+custom_styles/hover = SubResource( 43 )
+custom_styles/pressed = SubResource( 44 )
+custom_styles/focus = SubResource( 45 )
+custom_styles/normal = SubResource( 46 )
 flat = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -341,7 +341,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 size_flags_horizontal = 3
 size_flags_vertical = 7
-custom_fonts/font = SubResource( 26 )
+custom_fonts/font = SubResource( 47 )
 text = "Retry"
 align = 1
 valign = 1
@@ -369,9 +369,10 @@ __meta__ = {
 }
 
 [node name="GameOverSound" type="AudioStreamPlayer" parent="Camera2D/GameOverOverlay"]
-stream = ExtResource( 10 )
+stream = ExtResource( 2 )
 
 [connection signal="gameOver" from="Camera2D/PlayerNode/Player" to="Camera2D/GameOverOverlay" method="_on_Player_gameOver"]
+[connection signal="area_entered" from="Camera2D/PlayerNode/Player/Detect" to="Camera2D/PlayerNode/Player" method="_on_Detect_area_entered"]
 [connection signal="area_exited" from="Camera2D/PlayerNode/Player/Detect" to="Camera2D/PlayerNode/Player" method="_on_Detect_area_exited"]
 [connection signal="body_entered" from="Camera2D/PlayerNode/Player/Detect" to="Camera2D/PlayerNode/Player" method="_on_Detect_body_entered"]
 [connection signal="body_entered" from="Camera2D/PlayerNode/Player/WallSpawner" to="Camera2D/PlayerNode/Player" method="_on_WallSpawner_body_entered"]

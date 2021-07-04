@@ -15,8 +15,14 @@ var screenTapped = false
 var holdButton = false
 var motion = Vector2()
 var wall = preload("res://Scenes/WallNode.tscn")
+var wallUD = preload("res://Scenes/WallNode_upDown.tscn")
+var wallLR = preload("res://Scenes/WallNode_leftRight.tscn")
 var playerIdle = load("res://Assets/Player/player1.png")
 var playerFlap = load("res://Assets/Player/player1_fire.png")
+
+
+func _ready():
+	randomize()
 
 
 func _physics_process(delta):
@@ -41,7 +47,19 @@ func _on_WallDestroyer_body_entered(body):
 
 func _on_WallSpawner_body_entered(body):
 	if body.name == "Walls":
-		var newWall = wall.instance()
+		var randomFloat = randf()
+		var newWall
+		
+		if randomFloat < 0.82:
+			newWall = wall.instance()
+		else:
+			randomFloat = randf()
+			
+			if randomFloat < 0.5:
+				newWall = wallUD.instance()
+			else:
+				newWall = wallLR.instance()
+		
 		newWall.position = Vector2(position.x + 2500, rand_range(-gapRange, gapRange))
 		get_parent().call_deferred("add_child", newWall)
 
@@ -53,23 +71,42 @@ func _on_Detect_area_exited(area):
 		gameOver()
 
 
+func _on_Detect_area_entered(area):
+	if area.name == "ItemUpDownArea":
+		get_parent().get_parent().get_parent().get_node("Camera2D").scale.y = -1 * get_parent().get_parent().get_parent().get_node("Camera2D").scale.y
+		up.y = -1 * up.y
+		flap = -1 * flap
+		gravity = -1 * gravity
+		motion.y = -1 * motion.y
+	elif area.name == "ItemLeftRightArea":
+		get_parent().get_parent().get_parent().get_node("Camera2D").scale.x = -1 * get_parent().get_parent().get_parent().get_node("Camera2D").scale.x
+
+
 func _on_Detect_body_entered(body):
 	if body.name == "Walls":
 		gameOver()
 
 
 func gameOver():
-	emit_signal("gameOver", score, "classic")
+	if up.y > 0:
+		up.y = -1 * up.y
+		flap = -1 * flap
+		gravity = -1 * gravity
+		motion.y = -1 * motion.y
+		get_parent().get_parent().get_parent().get_node("Camera2D").scale.y = -1 * get_parent().get_parent().get_parent().get_node("Camera2D").scale.y
+	if get_parent().get_parent().get_parent().get_node("Camera2D").scale.x < 0:
+		get_parent().get_parent().get_parent().get_node("Camera2D").scale.x = -1 * get_parent().get_parent().get_parent().get_node("Camera2D").scale.x
+	emit_signal("gameOver", score, "crazy")
 
 
 func _on_FlapBtn_button_down():
 	if holdButton == false:
-		print("HOLD")
+		#print("HOLD")
 		holdButton = true
 		screenTapped = true
 		get_node("Sprite").texture = playerFlap
 	else:
-		print("ELSE")
+		#print("ELSE")
 		holdButton = true
 		screenTapped = false
 		get_node("Sprite").texture = playerFlap
@@ -77,7 +114,7 @@ func _on_FlapBtn_button_down():
 
 
 func _on_FlapBtn_button_up():
-	print("GONE")
+	#print("GONE")
 	screenTapped = false
 	holdButton = false
 	get_node("Sprite").texture = playerIdle

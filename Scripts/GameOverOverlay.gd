@@ -15,14 +15,20 @@ func _on_RetryBtn_pressed():
 	get_tree().paused = false
 
 
-func _on_Player_gameOver(score):
+func _on_Player_gameOver(score, mode):
 	get_tree().paused = true
 	for section in settings.settings.keys():
 		if section == "highscores":
-			for key in settings.settings[section].keys():
-				if key == "highscore":
-					if score > settings.settings[section][key]:
-						settings.settings[section][key] = score
+			if mode == "classic":
+				for key in settings.settings[section].keys():
+					if key == "highscore":
+						if score > settings.settings[section][key]:
+							settings.settings[section][key] = score
+			elif mode == "crazy":
+				for key in settings.settings[section].keys():
+					if key == "crazyHighscore":
+						if score > settings.settings[section][key]:
+							settings.settings[section][key] = score
 	settings.saveSettings()
 	
 	get_node("GameOverSound").play()

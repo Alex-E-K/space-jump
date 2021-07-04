@@ -6,7 +6,8 @@ const SAVE_PATH = "user://settings_saves.cfg"
 var settingsFile = ConfigFile.new()
 var settings = {
 	"highscores": {
-		"highscore": int(0)
+		"highscore": int(0),
+		"crazyHighscore": int(0)
 	}
 }
 
