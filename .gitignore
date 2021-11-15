@@ -4,6 +4,7 @@ icon.png
 .import/
 default_env.tres
 icon.png.import
+[Ee]xport/
 
 
 # Created by https://www.toptal.com/developers/gitignore/api/godot,csharp,windows,macos
