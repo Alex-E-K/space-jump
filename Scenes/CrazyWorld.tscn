@@ -95,16 +95,42 @@ font_data = SubResource( 25 )
 motion_mirroring = Vector2( 4096, 0 )
 
 [node name="Sprite" type="Sprite" parent="Background/ParallaxBackground/ParallaxLayer"]
+visible = false
 position = Vector2( 0, -8 )
 scale = Vector2( 2, 2 )
 texture = ExtResource( 6 )
+
+[node name="TextureRect" type="TextureRect" parent="Background/ParallaxBackground/ParallaxLayer"]
+margin_left = -2048.0
+margin_top = -2048.0
+margin_right = 6144.0
+margin_bottom = 2048.0
+texture = ExtResource( 6 )
+expand = true
+stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="ParallaxLayer2" type="ParallaxLayer" parent="Background/ParallaxBackground"]
 motion_mirroring = Vector2( 4096, 0 )
 
 [node name="Sprite" type="Sprite" parent="Background/ParallaxBackground/ParallaxLayer2"]
+visible = false
 scale = Vector2( 2, 2 )
 texture = ExtResource( 5 )
+
+[node name="TextureRect" type="TextureRect" parent="Background/ParallaxBackground/ParallaxLayer2"]
+margin_left = -2048.0
+margin_top = -2048.0
+margin_right = 6144.0
+margin_bottom = 2048.0
+texture = ExtResource( 5 )
+expand = true
+stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="ParallaxLayer3" type="ParallaxLayer" parent="Background/ParallaxBackground"]
 
@@ -159,7 +185,7 @@ shape = SubResource( 28 )
 [node name="WallDestroyer" type="Area2D" parent="Camera2D/PlayerNode/Player"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Camera2D/PlayerNode/Player/WallDestroyer"]
-position = Vector2( -300, 0 )
+position = Vector2( -1000, 0 )
 shape = SubResource( 29 )
 
 [node name="WallNode" parent="Camera2D" instance=ExtResource( 1 )]
